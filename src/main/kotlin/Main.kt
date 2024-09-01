@@ -2,33 +2,13 @@
 fun main() {
     val parser = syntax {
         whitespace('\n', ' ', '\t', '\r')
-        val number = regex("[0-9]+") map { it.lexeme.toInt() }
-        val termOp = tag("+") or tag("-") map { it.lexeme }
-        val factorOp = tag("*") or tag("/") map { it.lexeme }
-        val factor = number then factorOp then number map {
-            val (first, rhs) = it
-            val (lhs, op) = first
-            if (op == "*") {
-                lhs * rhs
-            } else {
-                lhs / rhs
-            }
-        }
-        val term = number then termOp then factor map {
-            val (first, rhs) = it
-            val (lhs, op) = first
-            if (op == "+") {
-                lhs + rhs
-            } else {
-                lhs - rhs
-            }
-        }
-
-
-        term
+        choices(
+            tag("+"),
+            tag("-"),
+        ) or regex("[0-9]+").named("number")
     }
 
-    println("10 + 22 - 9 = ${parser.parse("10 + 22 * 9")}")
+    println("10 + 22 - 9 = ${parser.parse("k")}")
 }
 
 /*
