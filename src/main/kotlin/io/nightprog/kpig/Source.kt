@@ -1,7 +1,9 @@
+package io.nightprog.kpig
+
 /**
  * Represents the input source text and provides various methods for navigating and manipulating the text.
  *
- * The `Source` class maintains the content of the input text, tracks the current position within the text,
+ * The `io.nightprog.kpig.Source` class maintains the content of the input text, tracks the current position within the text,
  * and provides methods to access lines, columns, and manage whitespace. It also includes methods to save the current
  * state and to handle whitespace characters.
  *

@@ -1,3 +1,5 @@
+package io.nightprog.kpig
+
 import java.util.regex.Pattern
 
 /**
